@@ -9,4 +9,4 @@ service:
   type: NodePort
   port: 80
 env:
-  name: DEV
+  name: QA
