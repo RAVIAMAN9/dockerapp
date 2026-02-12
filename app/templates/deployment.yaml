@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: dockerapp
-          image: raviaman9/dockerapp:v4
+          image: raviaman9/dockerapp:v5
           ports:
             - containerPort: 8080
           env:
