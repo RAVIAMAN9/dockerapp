@@ -9,6 +9,6 @@ public class Hello {
     @GetMapping("/hello")
     public String get() {
 
-        return "Hello from dockerapp";
+        return "Hello from argocd";
     }
 }
