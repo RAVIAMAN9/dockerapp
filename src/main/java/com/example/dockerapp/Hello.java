@@ -10,14 +10,17 @@ public class Hello {
     @Value("${APP_ENV:UNKNOWN}")
     private String appEnv;
 
-    @GetMapping("/hello")
+    @GetMapping("/he")
     public String get() {
 
-        return "Hello from new app";
+        return "Hello from added qa,prod and dev";
     }
 
-    @GetMapping("/hel")
+    @Value("${GREETING_MESSAGE:Hello}")
+    private String greetingMessage;
+
+    @GetMapping("/hello")
     public String hello() {
-        return "Hello from dockerapp - Environment: " + appEnv;
+        return greetingMessage;
     }
 }

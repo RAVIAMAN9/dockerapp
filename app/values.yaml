@@ -1,12 +1,8 @@
+replicaCount: 1
 image:
   repository: raviaman9/dockerapp
-  tag: v5
-  pullPolicy: IfNotPresent
-
-replicaCount: 2
-
+  tag: v7
 service:
   type: NodePort
-  port: 80
-env:
-  name: DEV
+  nodePort: 30007
+greetingMessage: "Hello from DEV environment"

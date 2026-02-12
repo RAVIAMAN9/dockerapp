@@ -1,12 +1,8 @@
+replicaCount: 3
 image:
   repository: raviaman9/dockerapp
-  tag: v5
-  pullPolicy: IfNotPresent
-
-replicaCount: 2
-
+  tag: v7
 service:
   type: NodePort
-  port: 80
-env:
-  name: PROD
+  nodePort: 30027
+greetingMessage: "Hello from PROD environment"

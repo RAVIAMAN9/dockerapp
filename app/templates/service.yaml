@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dockerapp
-  labels:
-    app.kubernetes.io/name: dockerapp
-    app.kubernetes.io/instance: dockerapp
+  name: {{ .Release.Name }}
 spec:
-  type: NodePort
+  type: {{ .Values.service.type }}
   selector:
-    app.kubernetes.io/name: dockerapp
-    app.kubernetes.io/instance: dockerapp
+    app: {{ .Release.Name }}
   ports:
     - port: 80
       targetPort: 8080
+      nodePort: {{ .Values.service.nodePort }}

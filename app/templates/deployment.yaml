@@ -1,27 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dockerapp
-  labels:
-    app.kubernetes.io/name: dockerapp
-    app.kubernetes.io/instance: dockerapp
+  name: {{ .Release.Name }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: dockerapp
-      app.kubernetes.io/instance: dockerapp
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: dockerapp
-        app.kubernetes.io/instance: dockerapp
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: dockerapp
-          image: raviaman9/dockerapp:v5
+        - name: {{ .Release.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8080
           env:
-            - name: APP_ENV
-              value: "{{ .Values.env.name }}"
+            - name: GREETING_MESSAGE
+              value: "{{ .Values.greetingMessage }}"
