@@ -1,6 +1,6 @@
 image:
   repository: raviaman9/app
-  tag: v1
+  tag: v3
   pullPolicy: IfNotPresent
 
 replicaCount: 2
