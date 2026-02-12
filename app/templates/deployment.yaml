@@ -1,22 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: dockerapp
   labels:
-    app: dockerapp
+    app.kubernetes.io/name: dockerapp
+    app.kubernetes.io/instance: dockerapp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: dockerapp
+      app.kubernetes.io/name: dockerapp
+      app.kubernetes.io/instance: dockerapp
   template:
     metadata:
       labels:
-        app: dockerapp
+        app.kubernetes.io/name: dockerapp
+        app.kubernetes.io/instance: dockerapp
     spec:
       containers:
         - name: dockerapp
-          image: raviaman9/dockerapp:v1
-          imagePullPolicy: Always
+          image: raviaman9/dockerapp:latest
           ports:
             - containerPort: 8080
