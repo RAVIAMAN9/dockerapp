@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: dockerapp
-          image: raviaman9/dockerapp:v1
+          image: raviaman9/dockerapp:v3
           ports:
             - containerPort: 8080
